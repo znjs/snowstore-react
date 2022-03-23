@@ -1,0 +1,35 @@
+.hero-container {
+    /* background-image: url("/assets/hero1.jpg"); */
+    background-image: url("../../assets/hero1.jpg");
+    background-size: cover;
+    height: calc(100vh-4rem);
+}
+
+.hero-title {
+    height: calc(100vh - 4rem);
+    font-size: 4rem;
+    font-family: 'Festive', cursive;
+    letter-spacing: 0.5rem;
+}
+
+
+.scroll-down {
+    top: 70%;
+
+    font-size: 4rem;
+    animation: scrollDown infinite linear 2s;
+}
+
+@keyframes scrollDown {
+    0% {
+        top: 65%;
+    }
+
+    50% {
+        top: 75%;
+    }
+
+    100% {
+        top: 65%;
+    }
+}

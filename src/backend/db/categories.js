@@ -1,4 +1,4 @@
-import { v4 as uuid } from "uuid";
+import { nanoid } from "nanoid";
 
 /**
  * Category Database can be added here.
@@ -7,21 +7,28 @@ import { v4 as uuid } from "uuid";
 
 export const categories = [
   {
-    _id: uuid(),
-    categoryName: "fiction",
-    description:
-      "literature in the form of prose, especially novels, that describes imaginary events and people",
+    _id: nanoid(),
+    categoryName: "Clothing",
+    description: "Colthing section",
   },
   {
-    _id: uuid(),
-    categoryName: "non-fiction",
-    description:
-      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+    _id: nanoid(),
+    categoryName: "Decoration",
+    description: "Decoration items for christmas",
   },
   {
-    _id: uuid(),
-    categoryName: "horror",
-    description:
-      "Meant to cause discomfort and fear for both the character and readers, horror writers often make use of supernatural and paranormal elements in morbid stories that are sometimes a little too realistic.",
+    _id: nanoid(),
+    categoryName: "Caps",
+    description: "Head caps for all fashion",
+  },
+  {
+    _id: nanoid(),
+    categoryName: "Sweaters",
+    description: "Sweater for winter time",
+  },
+  {
+    _id: nanoid(),
+    categoryName: "Gift",
+    description: "Surprise gift for special ones",
   },
 ];
