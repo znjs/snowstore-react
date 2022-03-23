@@ -23,11 +23,9 @@ function ForgotPassword() {
                 placeholder="Enter Your Email"
               />
             </div>
-            <a href="/pages/authentication/auth-user.html">
-              <button class="pd-05 mg-b-1 mg-i-auto brd-sm bg-clr-gray-800 clr-gray-100 ">
-                Reset Password
-              </button>
-            </a>
+            <button class="pd-05 mg-b-1 mg-i-auto brd-sm bg-clr-gray-800 clr-gray-100 ">
+              Reset Password
+            </button>
             <br />
             <Link to="/signin">
               <span class="clr-gray-100">
