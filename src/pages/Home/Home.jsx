@@ -5,7 +5,9 @@ document.title = "SnowStore-react";
 function Home() {
   return (
     <>
-      <h1>Home</h1>
+      <NavBar />
+      <Hero />
+      <Categories />
     </>
   );
 }
