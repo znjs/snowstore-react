@@ -1,7 +1,12 @@
 import axios from "axios";
 import { createContext, useContext, useReducer } from "react";
 import { useNavigate } from "react-router-dom";
-import { authReducer } from "../reducer";
+import {
+  authReducer,
+  CREDENTIAL_CHECK,
+  UPDATE_TOKEN_AND_DATA,
+  USER_NOT_FOUND,
+} from "../reducer";
 
 const AuthContext = createContext();
 const AuthProvider = ({ children }) => {
@@ -24,7 +29,7 @@ const AuthProvider = ({ children }) => {
             data: { encodedToken, foundUser },
           } = res;
           userDispatch({
-            type: "UPDATE_TOKEN_AND_DATA",
+            type: UPDATE_TOKEN_AND_DATA,
             payload: { token: encodedToken, foundUser: foundUser },
           });
           localStorage.setItem("JWT_TOKEN", encodedToken);
@@ -32,13 +37,13 @@ const AuthProvider = ({ children }) => {
         }
         if (res.status === 201) {
           userDispatch({
-            type: "CREDENTIAL_CHECK",
+            type: CREDENTIAL_CHECK,
             payload: {},
           });
         }
       } catch (err) {
         userDispatch({
-          type: "USER_NOT_FOUND",
+          type: USER_NOT_FOUND,
           payload: {},
         });
         console.error("Error: ", err);
