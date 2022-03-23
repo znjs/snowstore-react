@@ -1,0 +1,15 @@
+.cart,
+.cart-total {
+    max-width: 50rem;
+}
+
+@media only screen and (max-width:1340px) {
+    .cart-total {
+        order: -1;
+        margin-inline: 1rem;
+    }
+
+    main {
+        justify-content: center;
+    }
+}

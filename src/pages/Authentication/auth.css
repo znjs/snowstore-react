@@ -1,0 +1,29 @@
+:root {
+    --transparent-white-29: #f9fafb29;
+    --transparent-white-40: #f9fafb40;
+    --blend-color: #b98c6e;
+}
+
+.auth-page {
+    /* ?BACKGOUND IMAGE */
+    background-color: var(--blend-color);
+    /* background-image: url("/assets/christmas.jpg"); */
+    background-image: url("../../assets/christmas.jpg");
+    background-size: cover;
+    height: 100vh;
+}
+
+.sign-in-card {
+    margin-top: 5rem;
+    background: linear-gradient(to right, transparent 0%, var(--transparent-white-29) 10%, var(--transparent-white-40) 30%, var(--transparent-white-29) 70%, transparent 100%);
+}
+
+.sign-in-card>h2 {
+    font-size: 2.25rem;
+    letter-spacing: 0.25rem;
+}
+
+.h-screen-bg {
+    height: calc(100vh - 4rem);
+
+}

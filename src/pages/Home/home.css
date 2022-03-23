@@ -1,0 +1,47 @@
+::-webkit-scrollbar {
+    width: 0;
+}
+
+.categories {
+    height: 100vh;
+}
+
+.category-cloth {
+    width: 34%;
+    /* background-image: url("/assets/winter-cloths.jpg"); */
+    background-image: url("../../assets/winter-cloths.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.category-tree {
+    width: 34%;
+    /* background-image: url("/assets/christmas-tree2.jpg"); */
+    background-image: url("../../assets/christmas-tree2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.category-decors {
+    height: 50vh;
+    /* background-image: url("/assets/hanging2.jpg"); */
+    background-image: url("../../assets/hanging2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.category-gift {
+    height: 50vh;
+    /* background-image: url("/assets/gifts.jpg"); */
+    background-image: url("../../assets/gifts.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.category-wrapper {
+    flex-grow: 1;
+}
+
+.category-title {
+    font-size: 4vw;
+}

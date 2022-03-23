@@ -1,0 +1,12 @@
+.hr {
+    margin-block: 0.5rem;
+    border: 0;
+    border-top: 1px solid gray;
+    width: 90%;
+    margin-inline: auto;
+}
+
+.filter-height {
+    height: 100vh;
+    overflow: auto
+}
