@@ -1,5 +1,12 @@
 import React from "react";
 import { useFilter } from "../../context";
+import {
+  ADD_TO_WISHLIST,
+  DEC_CART_COUNT,
+  INC_CART_COUNT,
+  MOVE_TO_SAVE_FOR_LATER,
+  REMOVE_FROM_CART,
+} from "../../reducer";
 
 function CartCard({
   item: {
@@ -13,7 +20,6 @@ function CartCard({
     costPrice,
     rating,
     category,
-    count,
     cartItemCount,
   },
 }) {
@@ -38,7 +44,7 @@ function CartCard({
                 className="decrease pd-025 bg-clr-yellow-300"
                 onClick={() => {
                   dispatch({
-                    type: "DEC_CART_COUNT",
+                    type: DEC_CART_COUNT,
                     payload: { itemId: _id },
                   });
                 }}
@@ -50,7 +56,7 @@ function CartCard({
                 className="increase pd-025 bg-clr-yellow-300"
                 onClick={() => {
                   dispatch({
-                    type: "INC_CART_COUNT",
+                    type: INC_CART_COUNT,
                     payload: { itemId: _id },
                   });
                 }}
@@ -62,7 +68,7 @@ function CartCard({
               className="pd-0625 brd-sm mg-i-05"
               onClick={() => {
                 dispatch({
-                  type: "MOVE_TO_SAVE_FOR_LATER",
+                  type: MOVE_TO_SAVE_FOR_LATER,
                   payload: { itemId: _id },
                 });
               }}
@@ -73,7 +79,7 @@ function CartCard({
               className="pd-0625 brd-sm mg-i-05"
               onClick={() => {
                 dispatch({
-                  type: "REMOVE_FROM_CART",
+                  type: REMOVE_FROM_CART,
                   payload: { itemId: _id },
                 });
               }}
@@ -82,8 +88,18 @@ function CartCard({
             </button>
           </div>
         </div>
-        <div className="p-abs bg-clr-gray-50 brd-round h-105 w-105 item-center top-lft mg-05">
-          <i className="fa-solid fa-heart clr-red-400 "></i>
+        <div className="p-abs bg-clr-gray-50 brd-round h-105 w-105 item-center top-lft mg-05 cr-pt">
+          <i
+            className={`${
+              wishlisted ? "fa-solid" : "fa-regular"
+            } fa-heart clr-red-400 `}
+            onClick={() => {
+              dispatch({
+                type: ADD_TO_WISHLIST,
+                payload: { itemId: _id },
+              });
+            }}
+          ></i>
         </div>
       </div>
     </>
