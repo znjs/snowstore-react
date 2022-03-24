@@ -73,7 +73,7 @@ function NavBar() {
                 <NavLink to="/cart">
                   <div className="p-rel mg-i-05">
                     <span className="brd-round bg-clr-yellow-500 h-3 w-3 fx-row fx-jc-center fx-ai-center f-105">
-                      <i className="fas fa-shopping-cart"></i>
+                      <i className="clr-gray-50 fas fa-shopping-cart"></i>
                     </span>
                     <span className="p-abs brd-round notification rgt top bg-clr-green-600 f-075 clr-gray-50 fx fx-jc-center fx-ai-center">
                       {cartItems.length}
