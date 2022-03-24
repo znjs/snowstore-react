@@ -1,5 +1,11 @@
 import React from "react";
 import { useFilter } from "../../context";
+import {
+  ADD_TO_CART,
+  ADD_TO_WISHLIST,
+  DEC_CART_COUNT,
+  REMOVE_FROM_CART,
+} from "../../reducer";
 
 function SaveForLater({
   item: {
@@ -34,14 +40,34 @@ function SaveForLater({
           <p className="f-075">{itemDesc}</p>
           <div className="pd-b-1 fx-row mg-i-2 fx-ai-center fx-wrap">
             <div className="count-control brd-sm o-hide">
-              <button className="decrease pd-025 bg-clr-yellow-300">-</button>
-              <span className="pd-025">1</span>
-              <button className="increase pd-025 bg-clr-yellow-300">+</button>
+              <button
+                className="decrease pd-025 bg-clr-yellow-300"
+                onClick={() => {
+                  dispatch({
+                    type: DEC_CART_COUNT,
+                    payload: { itemId: _id },
+                  });
+                }}
+              >
+                -
+              </button>
+              <span className="pd-025">{cartItemCount}</span>
+              <button
+                className="increase pd-025 bg-clr-yellow-300"
+                onClick={() => {
+                  dispatch({
+                    type: "INC_CART_COUNT",
+                    payload: { itemId: _id },
+                  });
+                }}
+              >
+                +
+              </button>
             </div>
             <button
               className="pd-0625 brd-sm mg-i-05 bg-clr-yellow-300"
               onClick={() => {
-                dispatch({ type: "ADD_TO_CART", payload: { itemId: _id } });
+                dispatch({ type: ADD_TO_CART, payload: { itemId: _id } });
               }}
             >
               Move to cart
@@ -50,7 +76,7 @@ function SaveForLater({
               className="pd-0625 brd-sm mg-i-05"
               onClick={() => {
                 dispatch({
-                  type: "REMOVE_FROM_CART",
+                  type: REMOVE_FROM_CART,
                   payload: { itemId: _id },
                 });
               }}
@@ -59,8 +85,18 @@ function SaveForLater({
             </button>
           </div>
         </div>
-        <div className="p-abs bg-clr-gray-50 brd-round h-105 w-105 item-center top-lft mg-05">
-          <i className="far fa-heart clr-red-400 "></i>
+        <div className="p-abs bg-clr-gray-50 brd-round h-105 w-105 item-center top-lft mg-05 cr-pt">
+          <i
+            className={`${
+              wishlisted ? "fa-solid" : "fa-regular"
+            } fa-heart clr-red-400 `}
+            onClick={() => {
+              dispatch({
+                type: ADD_TO_WISHLIST,
+                payload: { itemId: _id },
+              });
+            }}
+          ></i>
         </div>
       </div>
     </>
