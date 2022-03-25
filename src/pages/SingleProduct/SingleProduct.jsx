@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { NavBar } from "../../components";
 import { useFilter } from "../../context";
+
 function SingleProduct() {
   const { productId } = useParams();
   const { productsState, dispatch } = useFilter();
@@ -21,6 +22,7 @@ function SingleProduct() {
     rating,
     category,
   } = product;
+  document.title = itemName;
   return (
     <>
       <NavBar />

@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import { NavBar, WishlistCard } from "../../components";
 import { useFilter } from "../../context";
 import "./wishlist.css";
+
 function Wishlist() {
+  document.title = "Wishlist";
   const { productsState } = useFilter();
   const wishlistItems = productsState.products.filter((ele) => ele.wishlisted);
   return (

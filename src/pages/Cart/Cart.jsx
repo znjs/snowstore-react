@@ -4,6 +4,7 @@ import { CartCard, NavBar, SaveForLater } from "../../components";
 import { useFilter } from "../../context";
 
 function Cart() {
+  document.title = "Cart";
   const { productsState } = useFilter();
   const cartItems = productsState.products.filter((item) => item.cart);
   const savedItems = productsState.products.filter((item) => item.saveForLater);

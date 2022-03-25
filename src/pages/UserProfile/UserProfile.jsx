@@ -5,6 +5,7 @@ import { NavBar } from "../../components";
 import { useAuth } from "../../context";
 
 function UserProfile() {
+  document.title = "Profile";
   const [activeState, setActiveState] = useState(true);
   const address = useRef("");
   const [newAddressInput, setNewAddressInput] = useState(false);

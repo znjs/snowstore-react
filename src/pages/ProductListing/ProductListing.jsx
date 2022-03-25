@@ -1,8 +1,8 @@
 import React from "react";
 import { Filter, NavBar, Products } from "../../components";
 
-document.title = "SnowStore-react | Products";
 function ProductListing() {
+  document.title = "SnowStore-react | Products";
   return (
     <div>
       <NavBar />

@@ -2,9 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./auth.css";
 
-document.title = "SnowStore-react | SignUp";
-
 function SignUp() {
+  document.title = "SnowStore | SignUp";
   return (
     <>
       <main className="g-parent g-one-one auth-page">

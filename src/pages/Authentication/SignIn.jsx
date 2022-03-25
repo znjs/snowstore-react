@@ -4,9 +4,8 @@ import { useState } from "react";
 import "./auth.css";
 import { useAuth } from "../../context";
 
-document.title = "SnowStore-react | SignIn";
-
 function SignIn() {
+  document.title = "SnowStore | SignIn";
   const { userState, userDispatch, loginUser } = useAuth();
   const [formData, setFormData] = useState({
     email: "",
