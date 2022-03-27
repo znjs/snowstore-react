@@ -9,6 +9,7 @@ const initialState = {
   sortOrder: 0,
   products: [],
   default: [],
+  searchText: "",
 };
 
 const FilterContext = createContext();
