@@ -71,14 +71,16 @@ function SignIn() {
                 <span
                   className="clr-gray-100"
                   onClick={() => {
-                    userDispatch({
-                      type: "UPDATE_USER_DATA",
-                      payload: {
-                        email: formData.email,
-                        password: formData.password,
-                      },
-                    });
-                    loginUser(formData.email, formData.password);
+                    if (formData.email !== "" && formData.password !== "") {
+                      userDispatch({
+                        type: "UPDATE_USER_DATA",
+                        payload: {
+                          email: formData.email,
+                          password: formData.password,
+                        },
+                      });
+                      loginUser(formData.email, formData.password);
+                    }
                   }}
                 >
                   Sign In

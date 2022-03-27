@@ -1,6 +1,8 @@
 :root {
     --transparent-white-29: #f9fafb29;
     --transparent-white-40: #f9fafb40;
+    --transparent-gray-61: #80808061;
+    --tranparent-black-40: #00000040;
     --blend-color: #b98c6e;
 }
 
@@ -26,4 +28,8 @@
 .h-screen-bg {
     height: calc(100vh - 4rem);
 
+}
+
+.title-bg {
+    background: linear-gradient(to right, transparent 0%, var(--transparent-gray-61) 10%, var(--tranparent-black-40) 30%, var(--transparent-gray-61) 90%, transparent 100%);
 }
