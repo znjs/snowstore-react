@@ -56,12 +56,14 @@ function UserProfile() {
                 <h3>User Details</h3>
                 <p>
                   Name:
-                  {userState?.foundUser?.firstName +
+                  {" " +
+                    userState?.foundUser?.firstName +
+                    " " +
                     userState?.foundUser?.lastName}
                 </p>
                 <p>
                   email:
-                  {userState?.foundUser?.email}
+                  {" " + userState?.foundUser?.email}
                 </p>
                 <button
                   className="bg-clr-red-500 pd-i-1 pd-b-05 mg-b-1 brd-sm fw-600"

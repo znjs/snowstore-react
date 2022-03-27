@@ -23,7 +23,7 @@ function ProductCard({
   const navigate = useNavigate();
   return (
     <>
-      <div className="o-hide p-rel bg-clr-gray-50 w-16 clr-gray-900 brd-hov brd-sm mg-1 fx-as-fs">
+      <div className="o-hide p-rel bg-clr-gray-50 w-16 clr-gray-900 card-shadow brd-sm mg-1 fx-as-fs">
         <Link to={`/products/${_id}`}>
           <img className="card-img " src={imageUrl} alt={altText} />
         </Link>
@@ -45,7 +45,7 @@ function ProductCard({
           <div>
             <span className="pd-i-0625 tx-lt clr-gray-500">₹{costPrice}</span>
             <span className="pd-i-0625">₹{sellingPrice}</span>
-            <span className="text-red-400">only</span>
+            <span className="clr-red-400">only</span>
           </div>
           <p className="f-075">{itemDesc}</p>
           <div className="fx fx-col pd-b-1 fx-jc-center fx-ai-center">
