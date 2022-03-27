@@ -1,23 +1,41 @@
 import React from "react";
 import "./nav.css";
 import { logo } from "../../assets";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useFilter } from "../../context";
+import {
+  CLEAR_FILTER,
+  UPDATE_SEARCH_TEXT,
+  SEARCH_PRODUCT,
+} from "../../reducer";
 function NavBar() {
   const JWT = localStorage.getItem("JWT_TOKEN");
-  const { productsState } = useFilter();
-  const cartItems = productsState.products.filter((ele) => ele.cart);
-  const wishlistItems = productsState.products.filter((ele) => ele.wishlisted);
+  const { productsState, dispatch } = useFilter();
+  const cartItems = productsState.default.filter((ele) => ele.cart);
+  const wishlistItems = productsState.default.filter((ele) => ele.wishlisted);
   const navigate = useNavigate();
+  const location = useLocation();
   return (
     <>
       <nav className="pd-05 fx-row w-full bg-clr-gray-800 clr-gray-50">
         <div className="nav-icon fx-row fx-ai-center mg-i-1025 h-3">
           <NavLink to="/">
-            <img src={logo} alt="" className="h-2 w-2" />
+            <img
+              src={logo}
+              alt=""
+              className="h-2 w-2"
+              onClick={() => {
+                dispatch({ type: CLEAR_FILTER });
+              }}
+            />
           </NavLink>
           <NavLink to="/">
-            <span className="ff-festive mg-i-1025 f-2 clr-gray-50 fw-700">
+            <span
+              className="ff-festive mg-i-1025 f-2 clr-gray-50 fw-700"
+              onClick={() => {
+                dispatch({ type: CLEAR_FILTER });
+              }}
+            >
               Snowstore
             </span>
           </NavLink>
@@ -37,7 +55,24 @@ function NavBar() {
         <input
           type="search"
           placeholder="Search"
+          value={productsState.searchText}
+          onChange={(e) =>
+            dispatch({
+              type: UPDATE_SEARCH_TEXT,
+              payload: { text: e.target.value },
+            })
+          }
           className="pd-i-05 mg-i-1 brd-sm flex fx-grow"
+          onKeyUp={(e) => {
+            if (e.key === "Enter") {
+              if (location.pathname !== "/products") {
+                navigate("/products");
+              }
+              dispatch({
+                type: SEARCH_PRODUCT,
+              });
+            }
+          }}
         />
         <ul className="fx-row fx-ai-center links">
           <li className="pd-i-1">

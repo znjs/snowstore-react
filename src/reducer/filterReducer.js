@@ -12,6 +12,8 @@ import {
   INC_CART_COUNT,
   DEC_CART_COUNT,
   UPDATE_DEFAULT,
+  UPDATE_SEARCH_TEXT,
+  SEARCH_PRODUCT,
 } from "./constants";
 
 const filterReducer = (productsState, action) => {
@@ -21,6 +23,7 @@ const filterReducer = (productsState, action) => {
     maxPrice: 6000,
     sortOrder: 0,
     products: productsState.default,
+    searchText: "",
     default: productsState.default,
   };
   let productsStateCopy = { ...productsState };
@@ -117,7 +120,14 @@ const filterReducer = (productsState, action) => {
       };
       productsStateCopy = {
         ...productsStateCopy,
-        default: productsStateCopy.products,
+        default: [
+          ...productsStateCopy.default.map((ele) => {
+            if (ele._id === action.payload.itemId) {
+              return { ...ele, wishlisted: !ele.wishlisted };
+            }
+            return ele;
+          }),
+        ],
       };
       break;
     case ADD_TO_CART:
@@ -139,7 +149,19 @@ const filterReducer = (productsState, action) => {
       };
       productsStateCopy = {
         ...productsStateCopy,
-        default: productsStateCopy.products,
+        default: [
+          ...productsStateCopy.default.map((ele) => {
+            if (ele._id === action.payload.itemId) {
+              return {
+                ...ele,
+                cart: true,
+                cartItemCount: ele.cartItemCount || 1,
+                saveForLater: false,
+              };
+            }
+            return ele;
+          }),
+        ],
       };
       break;
     case MOVE_TO_SAVE_FOR_LATER:
@@ -246,6 +268,25 @@ const filterReducer = (productsState, action) => {
       productsStateCopy = {
         ...productsStateCopy,
         default: productsStateCopy.products,
+      };
+      break;
+    case UPDATE_SEARCH_TEXT:
+      productsStateCopy = {
+        ...productsStateCopy,
+        searchText: action.payload.text,
+      };
+      break;
+    case SEARCH_PRODUCT:
+      productsStateCopy = {
+        ...productsStateCopy,
+        products:
+          productsStateCopy.searchText !== ""
+            ? productsStateCopy.default.filter((item) =>
+                item.itemName
+                  .toLowerCase()
+                  .includes(productsStateCopy.searchText.toLowerCase())
+              )
+            : productsStateCopy.default,
       };
       break;
     case CLEAR_FILTER:

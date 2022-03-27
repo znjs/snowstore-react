@@ -19,4 +19,6 @@ export {
   MOVE_TO_CART,
   INC_CART_COUNT,
   DEC_CART_COUNT,
+  UPDATE_SEARCH_TEXT,
+  SEARCH_PRODUCT,
 } from "./constants";
