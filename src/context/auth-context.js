@@ -15,6 +15,7 @@ const AuthProvider = ({ children }) => {
     password: "",
     passwordCheck: false,
     userNotFound: false,
+    userExists: false,
   });
   let navigate = useNavigate();
   const loginUser = async (email, password) => {
@@ -50,9 +51,47 @@ const AuthProvider = ({ children }) => {
       }
     }
   };
+  const signUpUser = async (email, password, firstName, lastName) => {
+    if (
+      email !== "" &&
+      password !== "" &&
+      firstName !== "" &&
+      lastName !== ""
+    ) {
+      try {
+        let res = await axios.post("/api/auth/signup", {
+          email: email,
+          password: password,
+          firstName: firstName,
+          lastName: lastName,
+        });
+        if (res.status === 201) {
+          const {
+            data: { encodedToken, createdUser },
+          } = res;
+          userDispatch({
+            type: UPDATE_TOKEN_AND_DATA,
+            payload: { token: encodedToken, foundUser: createdUser },
+          });
+          localStorage.setItem("JWT_TOKEN", encodedToken);
+          navigate("/products", { replace: true });
+        }
+      } catch (err) {
+        console.error("Error: ", err);
+        if (err.response.status === 422) {
+          userDispatch({
+            type: "USER_ALREADY_EXISTS",
+            payload: {},
+          });
+        }
+      }
+    }
+  };
 
   return (
-    <AuthContext.Provider value={{ userState, userDispatch, loginUser }}>
+    <AuthContext.Provider
+      value={{ userState, userDispatch, loginUser, signUpUser }}
+    >
       {children}
     </AuthContext.Provider>
   );

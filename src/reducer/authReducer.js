@@ -30,6 +30,11 @@ const authReducer = (authState, authAction) => {
         ...authState,
         userNotFound: true,
       };
+    case "USER_ALREADY_EXISTS":
+      return {
+        ...authState,
+        userExists: true,
+      };
     default:
       return authAction;
   }
