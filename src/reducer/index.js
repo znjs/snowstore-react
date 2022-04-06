@@ -21,4 +21,5 @@ export {
   DEC_CART_COUNT,
   UPDATE_SEARCH_TEXT,
   SEARCH_PRODUCT,
+  CLEAR_CART,
 } from "./constants";

@@ -14,6 +14,7 @@ import {
   UPDATE_DEFAULT,
   UPDATE_SEARCH_TEXT,
   SEARCH_PRODUCT,
+  CLEAR_CART,
 } from "./constants";
 
 const filterReducer = (productsState, action) => {
@@ -294,6 +295,20 @@ const filterReducer = (productsState, action) => {
         ...initialState,
         default: productsStateCopy.default,
       };
+      break;
+    case CLEAR_CART:
+      productsStateCopy = {
+        ...productsStateCopy,
+        default: productsStateCopy.default.map((item) => ({
+          ...item,
+          cart: false,
+        })),
+        products: productsStateCopy.products.map((item) => ({
+          ...item,
+          cart: false,
+        })),
+      };
+      console.log(productsStateCopy);
       break;
     default:
       break;

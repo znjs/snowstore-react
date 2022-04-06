@@ -2,10 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { CartCard, NavBar, SaveForLater } from "../../components";
 import { useFilter } from "../../context";
+import { clearCart } from "../../utils";
 
 function Cart() {
   document.title = "Cart";
-  const { productsState } = useFilter();
+  const { productsState, dispatch } = useFilter();
   const cartItems = productsState.products.filter((item) => item.cart);
   const savedItems = productsState.products.filter((item) => item.saveForLater);
   return (
@@ -61,7 +62,10 @@ function Cart() {
           <button className="w-full pd-0625 brd-sm mg-b-0625 bg-clr-yellow-300 fw-500 f-1">
             Share My cart
           </button>
-          <button className="w-full pd-0625 brd-sm mg-b-0625 bg-clr-gray-300 fw-500 f-1">
+          <button
+            onClick={() => clearCart(dispatch)}
+            className="w-full pd-0625 brd-sm mg-b-0625 bg-clr-gray-300 fw-500 f-1"
+          >
             Clear My cart
           </button>
         </div>
