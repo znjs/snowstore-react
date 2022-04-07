@@ -64,7 +64,7 @@ Snowstore is an E-commerce platform for all your winter and christmas need, you 
 
 ## **My process**
 
-Started with design and started implementing features componenetwise and combined all parts to make it into whole
+Started with design and layout and started implementing features componenet wise and combined all parts to make it into whole
 
 <br />
 
