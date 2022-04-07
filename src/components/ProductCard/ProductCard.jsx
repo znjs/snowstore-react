@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useFilter } from "../../context";
+import { toastMessage } from "../../utils/toastMessage";
 import "./product.css";
 
 function ProductCard({
@@ -52,6 +53,7 @@ function ProductCard({
             <button
               onClick={() => {
                 dispatch({ type: "ADD_TO_CART", payload: { itemId: _id } });
+                toastMessage("SUCCESS", "Product added to cart");
               }}
               className="bg-clr-yellow-300 pd-05 brd-sm w-full fw-600"
             >
@@ -84,12 +86,15 @@ function ProductCard({
               wishlisted ? "fa-solid" : "fa-regular"
             } fa-heart clr-red-400 `}
             onClick={() => {
-              JWT
-                ? dispatch({
-                    type: "ADD_TO_WISHLIST",
-                    payload: { itemId: _id },
-                  })
-                : navigate("/signin");
+              if (JWT) {
+                dispatch({
+                  type: "ADD_TO_WISHLIST",
+                  payload: { itemId: _id },
+                });
+                wishlisted
+                  ? toastMessage("INFO", "Product removed from wishlist")
+                  : toastMessage("SUCCESS", "Product added to wishlist");
+              } else navigate("/signin");
             }}
           ></i>
         </div>

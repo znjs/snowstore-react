@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { NavBar } from "../../components";
 import { useFilter } from "../../context";
+import { toastMessage } from "../../utils/toastMessage";
 
 function SingleProduct() {
   const { productId } = useParams();
@@ -65,6 +66,7 @@ function SingleProduct() {
                       type: "ADD_TO_CART",
                       payload: { itemId: _id },
                     });
+                    toastMessage("SUCCESS", "Product added to Cart");
                   }}
                 >
                   Add to cart
@@ -75,6 +77,9 @@ function SingleProduct() {
               className="pd-0625 brd-sm mg-i-025 bg-clr-gray-300"
               onClick={() => {
                 dispatch({ type: "ADD_TO_WISHLIST", payload: { itemId: _id } });
+                wishlisted
+                  ? toastMessage("INFO", "Product removed from wishlist")
+                  : toastMessage("SUCCESS", "Product added to wishlist");
               }}
             >
               {wishlisted ? "Remove from Wishlist" : "Add to wishlist"}
