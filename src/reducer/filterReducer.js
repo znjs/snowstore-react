@@ -1,3 +1,4 @@
+import { toastMessage } from "../utils/toastMessage";
 import {
   RATING_FILTER,
   CATEGORY_FILTER,
@@ -203,7 +204,9 @@ const filterReducer = (productsState, action) => {
         ...productsStateCopy,
         default: productsStateCopy.products,
       };
+      toastMessage("INFO", "Product removed from cart");
       break;
+
     case MOVE_TO_CART:
       productsStateCopy = {
         ...productsStateCopy,
@@ -226,7 +229,9 @@ const filterReducer = (productsState, action) => {
         ...productsStateCopy,
         default: productsStateCopy.products,
       };
+      toastMessage("SUCCESS", "Product moved to cart");
       break;
+
     case INC_CART_COUNT:
       productsStateCopy = {
         ...productsStateCopy,
@@ -308,7 +313,7 @@ const filterReducer = (productsState, action) => {
           cart: false,
         })),
       };
-      console.log(productsStateCopy);
+      toastMessage("SUCCESS", "Cart has been cleared");
       break;
     default:
       break;

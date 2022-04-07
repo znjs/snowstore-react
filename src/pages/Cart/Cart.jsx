@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CartCard, NavBar, SaveForLater } from "../../components";
 import { useFilter } from "../../context";
 import { clearCart } from "../../utils";
 
 function Cart() {
   document.title = "Cart";
+  const navigate = useNavigate();
   const { productsState, dispatch } = useFilter();
   const cartItems = productsState.products.filter((item) => item.cart);
   const savedItems = productsState.products.filter((item) => item.saveForLater);
@@ -54,11 +55,12 @@ function Cart() {
             }, 0)}
           </h2>
           <hr />
-          <a href="/pages/checkout/cart-summary.html">
-            <button className="w-full pd-0625 brd-sm mg-b-0625 bg-clr-yellow-300 fw-bold f-1 f-1">
-              Proceed to Checkout
-            </button>
-          </a>
+          <button
+            onClick={() => navigate("/cart-summary")}
+            className="w-full pd-0625 brd-sm mg-b-0625 bg-clr-yellow-300 fw-bold f-1 f-1"
+          >
+            Proceed to Checkout
+          </button>
           <button className="w-full pd-0625 brd-sm mg-b-0625 bg-clr-yellow-300 fw-500 f-1">
             Share My cart
           </button>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useFilter } from "../../context";
+import { toastMessage } from "../../utils/toastMessage";
 
 function WishlistCard({
   item: {
@@ -47,6 +48,7 @@ function WishlistCard({
                     type: "ADD_TO_WISHLIST",
                     payload: { itemId: _id },
                   });
+                  toastMessage("INFO", "Product removed from wishlist");
                 }}
               >
                 Remove

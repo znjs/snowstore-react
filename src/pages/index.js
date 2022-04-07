@@ -7,3 +7,4 @@ export { Wishlist } from "./Wishlist/Wishlist";
 export { Cart } from "./Cart/Cart";
 export { SingleProduct } from "./SingleProduct/SingleProduct";
 export { UserProfile } from "./UserProfile/UserProfile";
+export { Checkout } from "./Checkout/Checkout";

@@ -7,3 +7,4 @@ export { Products } from "./Products/Products";
 export { WishlistCard } from "./WishlistCard/WishlistCard";
 export { CartCard } from "./CartCard/CartCard";
 export { SaveForLater } from "./SaveForLater/SaveForLater";
+export { Toast } from "./Toast/Toast";
