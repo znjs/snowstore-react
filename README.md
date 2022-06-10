@@ -33,6 +33,19 @@ Snowstore for you Snow needs
 
 <br />
 
+## **How to run the project in local**
+
+### Follow the Commmands and enter in your choice of terminal
+
+```
+$ git clone https://github.com/znjs/snowstore-react.git
+$ cd pustaka
+$ npm install
+$ npm start
+```
+
+<br />
+
 Snowstore is an E-commerce platform for all your winter and christmas need, you can find everything from clothing to christmas decoration and christmas trees.
 
 ### **Screenshot**
@@ -51,7 +64,7 @@ Snowstore is an E-commerce platform for all your winter and christmas need, you 
 
 ## **My process**
 
-Started with design and started implementing features componenetwise and combined all parts to make it into whole
+Started with design and layout and started implementing features componenet wise and combined all parts to make it into whole
 
 <br />
 
