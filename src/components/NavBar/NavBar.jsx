@@ -75,19 +75,43 @@ function NavBar() {
           }}
         />
         <ul className="fx-row fx-ai-center links">
-          <li className="pd-i-1">
+          <li
+            className="pd-i-1"
+            onClick={() =>
+              dispatch({
+                type: "CATEGORY_FILTER",
+                payload: { checked: "Clothing" },
+              })
+            }
+          >
             <NavLink to="/products">
-              <span className="clr-gray-50">Christmas Tree's</span>
+              <span className="clr-gray-50">Christmas Clothing</span>
             </NavLink>
           </li>
-          <li className="pd-i-1">
+          <li
+            className="pd-i-1"
+            onClick={() =>
+              dispatch({
+                type: "CATEGORY_FILTER",
+                payload: { checked: "Decoration" },
+              })
+            }
+          >
             <NavLink to="/products">
-              <span className="clr-gray-50">Tree hangings</span>
+              <span className="clr-gray-50">Decorations</span>
             </NavLink>
           </li>
-          <li className="pd-i-1">
+          <li
+            className="pd-i-1"
+            onClick={() =>
+              dispatch({
+                type: "CATEGORY_FILTER",
+                payload: { checked: "Caps" },
+              })
+            }
+          >
             <NavLink to="/products">
-              <span className="clr-gray-50">Clothing</span>
+              <span className="clr-gray-50">Caps</span>
             </NavLink>
           </li>
           {JWT ? (
