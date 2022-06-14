@@ -75,6 +75,11 @@ function NavBar() {
           }}
         />
         <ul className="fx-row fx-ai-center links">
+          <li className="pd-i-1">
+            <NavLink to="/products">
+              <span className="clr-gray-50">Products</span>
+            </NavLink>
+          </li>
           <li
             className="pd-i-1"
             onClick={() =>
