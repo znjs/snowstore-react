@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import {
   Cart,
@@ -14,6 +14,7 @@ import {
 import { ProductListing } from "./pages";
 import Mockman from "mockman-js";
 import { Toast } from "./components";
+import { useEffect } from "react";
 function MockAPI() {
   return (
     <div className="MockAPI">
@@ -23,6 +24,10 @@ function MockAPI() {
 }
 
 function App() {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [location.pathname]);
   return (
     <>
       <Toast />
