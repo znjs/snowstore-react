@@ -64,7 +64,7 @@ function NavBar() {
           }
           className="pd-i-05 mg-i-1 brd-sm flex fx-grow"
           onKeyUp={(e) => {
-            if (e.key === "Enter") {
+            if (e.key === "Enter" || e.key === "Backspace") {
               if (location.pathname !== "/products") {
                 navigate("/products");
               }

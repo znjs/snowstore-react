@@ -52,8 +52,12 @@ function ProductCard({
           <div className="fx fx-col pd-b-1 fx-jc-center fx-ai-center">
             <button
               onClick={() => {
-                dispatch({ type: "ADD_TO_CART", payload: { itemId: _id } });
-                toastMessage("SUCCESS", "Product added to cart");
+                if (JWT) {
+                  dispatch({ type: "ADD_TO_CART", payload: { itemId: _id } });
+                  toastMessage("SUCCESS", "Product added to cart");
+                } else {
+                  navigate("/signin");
+                }
               }}
               className="bg-clr-yellow-300 pd-05 brd-sm w-full fw-600"
             >
@@ -74,9 +78,6 @@ function ProductCard({
                   Add To Cart
                 </span>
               )}
-            </button>
-            <button className="bg-clr-gray-300 pd-05 brd-sm mg-b-025 w-full fw-600">
-              Buy Now
             </button>
           </div>
         </div>
