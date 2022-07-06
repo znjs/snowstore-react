@@ -2,7 +2,7 @@ import React from "react";
 import "./hero.css";
 const scrollDown = () => {
   window.scroll({
-    top: 900,
+    top: window.innerHeight,
     left: 0,
     behavior: "smooth",
   });
