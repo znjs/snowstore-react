@@ -10,3 +10,7 @@
     height: 100vh;
     overflow: auto
 }
+
+.clear-filter:hover {
+    font-weight: 600;
+}

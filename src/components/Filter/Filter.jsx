@@ -19,7 +19,7 @@ function Filter() {
       <div className="fx fx-jc-sb pd-b-1">
         <h3>Filter</h3>
         <span
-          className="clr-blue-600 tx-ul cr-pt"
+          className="clr-gray-800 tx-ul cr-pt clear-filter"
           onClick={() => {
             dispatch({ type: CLEAR_FILTER });
             setPrice(6000);
