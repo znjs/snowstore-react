@@ -53,8 +53,10 @@ function ProductCard({
             <button
               onClick={() => {
                 if (JWT) {
-                  dispatch({ type: "ADD_TO_CART", payload: { itemId: _id } });
-                  toastMessage("SUCCESS", "Product added to cart");
+                  if (!cart) {
+                    dispatch({ type: "ADD_TO_CART", payload: { itemId: _id } });
+                    toastMessage("SUCCESS", "Product added to cart");
+                  }
                 } else {
                   navigate("/signin");
                 }
@@ -65,18 +67,7 @@ function ProductCard({
               {cart ? (
                 <Link to="/cart">Go to cart</Link>
               ) : (
-                <span
-                  onClick={() => {
-                    JWT
-                      ? dispatch({
-                          type: "ADD_TO_CART",
-                          payload: { itemId: _id },
-                        })
-                      : navigate("/signin");
-                  }}
-                >
-                  Add To Cart
-                </span>
+                <span>Add To Cart</span>
               )}
             </button>
           </div>

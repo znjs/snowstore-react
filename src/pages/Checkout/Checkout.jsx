@@ -30,8 +30,7 @@ function Checkout() {
     applyCoupon: false,
     discount: 0,
   });
-
-  const { productsState } = useFilter();
+  const { productsState, dispatch } = useFilter();
   const cartProducts = productsState.products.filter((product) => product.cart);
   const totalCostPrice = cartProducts.reduce(
     (acc, curr) => acc + parseFloat(curr.costPrice),
@@ -168,6 +167,7 @@ function Checkout() {
                   ).toFixed(2),
                   () => {
                     navigate("/products");
+                    dispatch({ type: "CLEAR_CART" });
                   }
                 )
               }

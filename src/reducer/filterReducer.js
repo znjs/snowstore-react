@@ -313,12 +313,11 @@ const filterReducer = (productsState, action) => {
           cart: false,
         })),
       };
-      toastMessage("SUCCESS", "Cart has been cleared");
       break;
     default:
       break;
   }
-  if (productsStateCopy.category.length && !action.payload.checked) {
+  if (productsStateCopy.category.length && !action.payload?.checked) {
     productsStateCopy = {
       ...productsStateCopy,
       products: [
@@ -328,17 +327,17 @@ const filterReducer = (productsState, action) => {
       ],
     };
   }
-  if (productsStateCopy.maxPrice !== 6000 && !action.payload.price) {
+  if (productsStateCopy.maxPrice !== 6000 && !action.payload?.price) {
     productsStateCopy = {
       ...productsStateCopy,
       products: [
         ...productsStateCopy.products.filter(
-          (item) => item.sellingPrice <= productsStateCopy.maxPrice
+          (item) => item.sellingPrice <= productsStateCopy?.maxPrice
         ),
       ],
     };
   }
-  if (productsStateCopy.rating && !action.payload.rating) {
+  if (productsStateCopy.rating && !action.payload?.rating) {
     productsStateCopy = {
       ...productsStateCopy,
       products: [
@@ -348,7 +347,7 @@ const filterReducer = (productsState, action) => {
       ],
     };
   }
-  if (productsStateCopy.sortOrder && !action.payload.sortOrder) {
+  if (productsStateCopy.sortOrder && !action.payload?.sortOrder) {
     productsStateCopy = {
       ...productsStateCopy,
       products: [
